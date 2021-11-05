@@ -9,13 +9,13 @@ const Fib = () => {
   const fetchValues = async () => {
     const currentDataResponse = await axios.get('/api/values/current')
     console.log('currentDataResponse', currentDataResponse)
-    // setValues(currentDataResponse.data)
+    setValues(currentDataResponse.data)
   }
 
   const fetchIndexes = async () => {
     const seenIndexesResponse = await axios.get('/api/values/all')
     console.log('seenIndexesResponse', seenIndexesResponse)
-    // setSeenIndexes(seenIndexes.data)
+    setSeenIndexes(seenIndexes.data)
   }
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Fib = () => {
  
   const handleSummit = async (e) => {
     e.preventDefault()
-    const res = await axios.post('/api/values', {
+    axios.post('/api/values', {
       index: index
     })
     setIndex('')
@@ -55,7 +55,6 @@ const Fib = () => {
          ))
       }
       </ul>
-
     </div>
   )
 }
