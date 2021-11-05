@@ -43,7 +43,7 @@ app.get('/values/all', async (req, res) => {
     console.log(values)
     res.send(values.rows)
   } catch(error) {
-    res.send(error)
+    res.send({customMsg:'something went wrong in query SELECT * from values',...error})
   }
 })
 
