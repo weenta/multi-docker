@@ -25,9 +25,10 @@ const Fib = () => {
  
   const handleSummit = async (e) => {
     e.preventDefault()
-    await axios.post('/api/values', {
+    const res = await axios.post('/api/values', {
       index: index
     })
+    console.log('handleSummit error in pgClient querys ', res)
     setIndex('')
   }
 
