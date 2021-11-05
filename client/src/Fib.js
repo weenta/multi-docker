@@ -28,7 +28,6 @@ const Fib = () => {
     const res = await axios.post('/api/values', {
       index: index
     })
-    console.log('handleSummit error in pgClient querys ', res)
     setIndex('')
   }
 

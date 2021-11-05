@@ -65,7 +65,7 @@ app.post('/values', async (req, res) => {
   try {
     pgClient.query('INSERT INTO values(number) VALUES($1)', [index])
   } catch (error) {
-    res.send(error)
+    res.send({customMsg: 'Something went wrong in INSERT INTO values(number) VALUES', ...error})
     return
   }
 
