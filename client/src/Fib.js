@@ -7,9 +7,11 @@ const Fib = () => {
   const [index, setIndex] = useState('')
 
   const fetchValues = async () => {
-    const currentDataResponse = await axios.get('/api/values/current')
-    console.log('currentDataResponse', currentDataResponse)
-    setValues(currentDataResponse.data)
+    const { data } = await axios.get('/api/values/current')
+    console.log('currentDataResponse', data)
+    if(typeof data === "object") {
+      setValues(data)
+    }
   }
 
   const fetchIndexes = async () => {
